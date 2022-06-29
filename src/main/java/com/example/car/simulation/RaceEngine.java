@@ -6,7 +6,7 @@ import java.util.List;
 public class RaceEngine
 {
     Track track;
-    List<Car> cars = new ArrayList<>();
+    ArrayList<Car> cars = new ArrayList<>();
 
     public void setTrack(Track track)
     {
@@ -28,9 +28,9 @@ public class RaceEngine
         cars.remove(car);
     }
 
-    public List<Car> getCars()
+    public ArrayList<Car> getCars()
     {
-        return cars;
+        return (ArrayList<Car>) cars;
     }
 
     public SimulationResult simulation()
