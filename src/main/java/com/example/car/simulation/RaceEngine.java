@@ -35,8 +35,28 @@ public class RaceEngine
 
     public SimulationResult simulation()
     {
+        // initial states
+        // TODO create carState for ever car and a a List<CarState>;
+        for(Car c : cars)
+        {
+            CarState carState = new CarState();
+            // carState.set(c)
+        }
+
+        for(CarState cs : carStates)
+        {
+            updateCarState(cs);
+        }
+
         //TODO
         return new SimulationResult();
     }
+
+    private void updateCarState(CarState cs)
+    {
+        // TODO
+
+    }
+
 
 }
