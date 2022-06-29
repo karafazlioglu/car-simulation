@@ -1,5 +1,6 @@
 package com.example.car.simulation;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class Application
         raceEngine.addCar(car1);
         raceEngine.addCar(car2);
 
-        List<Car> cars = raceEngine.getCars();
+        ArrayList<Car> cars = (ArrayList<Car>) raceEngine.getCars();
 
         Iterator<Car> it = cars.iterator();
         while (it.hasNext())
@@ -42,7 +43,7 @@ public class Application
             System.out.println(c.getName());
         }
         for (Car c : cars) {
-            System.out.println(c.getName());
+            System.out.println(c.getBrand());
         }
     }
 }
