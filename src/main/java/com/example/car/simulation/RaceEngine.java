@@ -30,7 +30,7 @@ public class RaceEngine
 
     public ArrayList<Car> getCars()
     {
-        return (ArrayList<Car>) cars;
+        return cars;
     }
 
     public SimulationResult simulation()

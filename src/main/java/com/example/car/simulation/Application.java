@@ -34,7 +34,12 @@ public class Application
         raceEngine.addCar(car1);
         raceEngine.addCar(car2);
 
-        ArrayList<Car> cars = (ArrayList<Car>) raceEngine.getCars();
+        ArrayList<Car> cars = raceEngine.getCars();
+        for (int i = 0; i < cars.size(); i++)
+        {
+            Car c = cars.get(i);
+            System.out.println(c.getName());
+        }
 
         Iterator<Car> it = cars.iterator();
         while (it.hasNext())
