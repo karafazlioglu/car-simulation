@@ -1,5 +1,6 @@
 package com.example.car.simulation;
 
+import javax.xml.namespace.QName;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,15 +38,27 @@ public class RaceEngine
     {
         // initial states
         // TODO create carState for ever car and a a List<CarState>;
-        for(Car c : cars)
+
+
+
+        List<CarState> carStates = new ArrayList<>();
+
+        for (Car c : cars)
         {
             CarState carState = new CarState();
-            // carState.set(c)
+            carState.setCar(c);
+            carState.setDistance(0f);
+            carState.setSpeed(0f);
+            carState.setTime(0f);
+
+            carStates.add(carState);
         }
 
-        for(CarState cs : carStates)
+
+        for (CarState cs : carStates)
         {
             updateCarState(cs);
+
         }
 
         //TODO
@@ -55,6 +68,7 @@ public class RaceEngine
     private void updateCarState(CarState cs)
     {
         // TODO
+        System.out.println("Car name: " + cs.getCar().getName() + " Distance: " + cs.getDistance() + " Speed: " + cs.getSpeed() + " Time: " + cs.getTime());
 
     }
 

@@ -14,6 +14,7 @@ public class Application
 
         System.out.println(Track.usage());
         Track track1 = new Track("Bostancı E5", 500);
+        raceEngine.setTrack(track1);
 
         Car car1 = new Car();
         car1.setName("Karaşimşek");
@@ -50,5 +51,7 @@ public class Application
         for (Car c : cars) {
             System.out.println(c.getBrand());
         }
+
+        raceEngine.simulation();
     }
 }
