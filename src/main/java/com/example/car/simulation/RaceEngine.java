@@ -9,6 +9,8 @@ public class RaceEngine
     Track track;
     ArrayList<Car> cars = new ArrayList<>();
 
+    List<CarState> carStates = new ArrayList<>();
+
     public void setTrack(Track track)
     {
         this.track = track;
@@ -37,12 +39,6 @@ public class RaceEngine
     public SimulationResult simulation()
     {
         // initial states
-        // TODO create carState for ever car and a a List<CarState>;
-
-
-
-        List<CarState> carStates = new ArrayList<>();
-
         for (Car c : cars)
         {
             CarState carState = new CarState();
@@ -55,21 +51,41 @@ public class RaceEngine
         }
 
 
-        for (CarState cs : carStates)
-        {
-            updateCarState(cs);
 
+        // TODO
+        // Yarışın bittiğini nasıl anlıycaz.
+        for (int i = 0; i < 1; i++)
+        {
+            for (CarState cs : carStates)
+                updateCarState(cs, 1f);
         }
 
         //TODO
         return new SimulationResult();
     }
 
-    private void updateCarState(CarState cs)
+    private void updateCarState(CarState cs, Float timeInterval)
     {
-        // TODO
         System.out.println("Car name: " + cs.getCar().getName() + " Distance: " + cs.getDistance() + " Speed: " + cs.getSpeed() + " Time: " + cs.getTime());
 
+        Integer maxDistance = track.getLength();
+        Integer acceleration = cs.getCar().getAcceleration();
+        Float speed = cs.getSpeed();
+        Float time = cs.getTime();
+        Float distance = cs.getDistance();
+
+        //TODO
+        //speedOld + acc*time = speedNew
+        //(speedOld+speedNew) / 2) * time + distanceOld
+        //Top speed hesaplamaya katılacak
+        //Track biterse ne olur
+        Float speedNew = 0f;
+        Float timeNew = time + timeInterval;
+        Float distanceNew = 0f;
+
+        cs.setSpeed(speedNew);
+        cs.setTime(timeNew);
+        cs.setDistance(distanceNew);
     }
 
 

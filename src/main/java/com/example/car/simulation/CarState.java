@@ -2,10 +2,10 @@ package com.example.car.simulation;
 
 public class CarState
 {
-    Car car;
-    Float distance;
-    Float time;
-    Float speed;
+    private Car car;
+    private Float distance; // meter
+    private Float time;  // second
+    private Float speed; // km/h
 
     // TODO getter setter;
     public void setCar(Car car)

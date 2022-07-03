@@ -8,8 +8,8 @@ public class Car
     String brand;
     String model;
 
-    Float acceleration;
-    Float topSpeed;
+    Float acceleration;  // km/s2 ??
+    Float topSpeed; // km/h
     Integer handling;
 
     public void setName(String name)
