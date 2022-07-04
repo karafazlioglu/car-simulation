@@ -50,14 +50,12 @@ public class RaceEngine
             carStates.add(carState);
         }
 
-
-
         // TODO
         // Yarışın bittiğini nasıl anlıycaz.
         for (int i = 0; i < 1; i++)
         {
             for (CarState cs : carStates)
-                updateCarState(cs, 1f);
+                updateCarState(cs, 5.508141487f);
         }
 
         //TODO
@@ -66,26 +64,28 @@ public class RaceEngine
 
     private void updateCarState(CarState cs, Float timeInterval)
     {
-        System.out.println("Car name: " + cs.getCar().getName() + " Distance: " + cs.getDistance() + " Speed: " + cs.getSpeed() + " Time: " + cs.getTime());
+        System.out.println("Car name: " + cs.getCar().getName() + " Distance: " + cs.getDistance() + " m" + " Speed: " + cs.getSpeed() + " km/hr" + " Time: " + cs.getTime() + " s");
 
-        Integer maxDistance = track.getLength();
-        Integer acceleration = cs.getCar().getAcceleration();
-        Float speed = cs.getSpeed();
-        Float time = cs.getTime();
-        Float distance = cs.getDistance();
+        Integer maxDistance = track.getLength(); // m
+        Float acceleration = cs.getCar().getAcceleration();  // km/hr2
+        Float speed = cs.getSpeed();  // km/hr
+        Float time = cs.getTime(); // second
+        Float distance = cs.getDistance();  // m
 
         //TODO
         //speedOld + acc*time = speedNew
         //(speedOld+speedNew) / 2) * time + distanceOld
         //Top speed hesaplamaya katılacak
         //Track biterse ne olur
-        Float speedNew = 0f;
+        Float speedNew = (acceleration * timeInterval) / 3.6f + speed;
         Float timeNew = time + timeInterval;
-        Float distanceNew = 0f;
+        Float distanceNew = distance + ((speedNew + speed) * 1.8f) * timeInterval;
 
         cs.setSpeed(speedNew);
         cs.setTime(timeNew);
         cs.setDistance(distanceNew);
+
+        System.out.println("Car name: " + cs.getCar().getName() + " Distance: " + cs.getDistance() + " m" + " Speed: " + cs.getSpeed() + " km/hr" + " Time: " + cs.getTime() + " s");
     }
 
 

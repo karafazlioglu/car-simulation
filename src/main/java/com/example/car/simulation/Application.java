@@ -13,14 +13,14 @@ public class Application
         RaceEngine raceEngine = new RaceEngine();
 
         System.out.println(Track.usage());
-        Track track1 = new Track("Bostancı E5", 500);
+        Track track1 = new Track("Bostancı E5", 402);
         raceEngine.setTrack(track1);
 
         Car car1 = new Car();
         car1.setName("Karaşimşek");
         car1.setBrand("Tofaş");
         car1.setModel("Şahin");
-        car1.setAcceleration(20.4f);
+        car1.setAcceleration(15.3f);
         car1.setTopSpeed(200.5f);
         car1.setHandling(6);
 
@@ -28,7 +28,7 @@ public class Application
         car2.setName("Ağlatıcı");
         car2.setBrand("BMW");
         car2.setModel("720d");
-        car2.setAcceleration(40.4f);
+        car2.setAcceleration(26.5f);
         car2.setTopSpeed(300.5f);
         car2.setHandling(8);
 

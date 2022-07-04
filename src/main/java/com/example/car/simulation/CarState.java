@@ -7,7 +7,6 @@ public class CarState
     private Float time;  // second
     private Float speed; // km/h
 
-    // TODO getter setter;
     public void setCar(Car car)
     {
         this.car = car;
@@ -40,8 +39,5 @@ public class CarState
     {
         return speed;
     }
-
-
-
 
 }
