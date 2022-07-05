@@ -8,7 +8,7 @@ public class Car
     String brand;
     String model;
 
-    Float acceleration;  // km/s2 ??
+    Float acceleration;  // m/s2 ??
     Float topSpeed; // km/h
     Integer handling;
 

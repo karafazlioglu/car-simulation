@@ -55,7 +55,7 @@ public class RaceEngine
         for (int i = 0; i < 1; i++)
         {
             for (CarState cs : carStates)
-                updateCarState(cs, 5.508141487f);
+                updateCarState(cs, 10f);
         }
 
         //TODO
@@ -67,19 +67,23 @@ public class RaceEngine
         System.out.println("Car name: " + cs.getCar().getName() + " Distance: " + cs.getDistance() + " m" + " Speed: " + cs.getSpeed() + " km/hr" + " Time: " + cs.getTime() + " s");
 
         Integer maxDistance = track.getLength(); // m
-        Float acceleration = cs.getCar().getAcceleration();  // km/hr2
+        Float acceleration = cs.getCar().getAcceleration();  // m/s2
         Float speed = cs.getSpeed();  // km/hr
         Float time = cs.getTime(); // second
         Float distance = cs.getDistance();  // m
-
+        Float topspeed = cs.getCar().getTopSpeed();
+        Integer trackLength = track.getLength();
+        Float topSpeedTime = topspeed * 3.6f / acceleration;
         //TODO
         //speedOld + acc*time = speedNew
         //(speedOld+speedNew) / 2) * time + distanceOld
         //Top speed hesaplamaya katılacak
         //Track biterse ne olur
-        Float speedNew = (acceleration * timeInterval) / 3.6f + speed;
+
+        Float speedNew = (acceleration * topSpeedTime) / 3.6f + speed;
+        Float distanceNew = distance + ((speedNew + speed) / 2.0f * 3.6f) * topSpeedTime +
+                (timeInterval - topSpeedTime) * topspeed * 3.6f;
         Float timeNew = time + timeInterval;
-        Float distanceNew = distance + ((speedNew + speed) * 1.8f) * timeInterval;
 
         cs.setSpeed(speedNew);
         cs.setTime(timeNew);
