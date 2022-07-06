@@ -52,10 +52,11 @@ public class RaceEngine
 
         // TODO
         // Yarışın bittiğini nasıl anlıycaz.
-        for (int i = 0; i < 1; i++)
+
+        for (int i = 0; i < 100; i++)
         {
             for (CarState cs : carStates)
-                updateCarState(cs, 10f);
+                updateCarState(cs, 1f);
         }
 
         //TODO
@@ -64,33 +65,42 @@ public class RaceEngine
 
     private void updateCarState(CarState cs, Float timeInterval)
     {
-        System.out.println("Car name: " + cs.getCar().getName() + " Distance: " + cs.getDistance() + " m" + " Speed: " + cs.getSpeed() + " km/hr" + " Time: " + cs.getTime() + " s");
+        System.out.println("Car State before. Car name: " + cs.getCar().getName() + " Distance: " + cs.getDistance() + " m" + " Speed: " + cs.getSpeed() + " km/hr" + " Time: " + cs.getTime() + " s");
 
         Integer maxDistance = track.getLength(); // m
         Float acceleration = cs.getCar().getAcceleration();  // m/s2
         Float speed = cs.getSpeed();  // km/hr
         Float time = cs.getTime(); // second
         Float distance = cs.getDistance();  // m
-        Float topspeed = cs.getCar().getTopSpeed();
+        Float topSpeed = cs.getCar().getTopSpeed();
         Integer trackLength = track.getLength();
-        Float topSpeedTime = topspeed * 3.6f / acceleration;
-        //TODO
-        //speedOld + acc*time = speedNew
-        //(speedOld+speedNew) / 2) * time + distanceOld
-        //Top speed hesaplamaya katılacak
-        //Track biterse ne olur
 
-        Float speedNew = (acceleration * topSpeedTime) / 3.6f + speed;
-        Float distanceNew = distance + ((speedNew + speed) / 2.0f * 3.6f) * topSpeedTime +
-                (timeInterval - topSpeedTime) * topspeed * 3.6f;
+
+
+
+        Float accelerationInterval = timeInterval;
+        Float intervalForTopSpeed = ((topSpeed - speed) / acceleration ) / 3.6f;
+        if (timeInterval > intervalForTopSpeed)
+        {
+            accelerationInterval = intervalForTopSpeed;
+        }
+        Float topSpeedInterval = timeInterval - accelerationInterval;
+
+
+        Float speedNew = speed + (acceleration * accelerationInterval) * 3.6f;
+        Float distanceNew = distance + ((speedNew + speed) / 2.0f * accelerationInterval + topSpeedInterval * topSpeed) / 3.6f;
         Float timeNew = time + timeInterval;
+
+
+        //TODO
+        //Track biterse ne olur
 
         cs.setSpeed(speedNew);
         cs.setTime(timeNew);
         cs.setDistance(distanceNew);
 
-        System.out.println("Car name: " + cs.getCar().getName() + " Distance: " + cs.getDistance() + " m" + " Speed: " + cs.getSpeed() + " km/hr" + " Time: " + cs.getTime() + " s");
-    }
+        System.out.println("Car state after.  Car name: " + cs.getCar().getName() + " Distance: " + cs.getDistance() + " m" + " Speed: " + cs.getSpeed() + " km/hr" + " Time: " + cs.getTime() + " s");
 
+    }
 
 }
