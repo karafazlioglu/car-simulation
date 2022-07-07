@@ -65,16 +65,20 @@ public class RaceEngine
 
     private void updateCarState(CarState cs, Float timeInterval)
     {
-        System.out.println("Car State before. Car name: " + cs.getCar().getName() + " Distance: " + cs.getDistance() + " m" + " Speed: " + cs.getSpeed() + " km/hr" + " Time: " + cs.getTime() + " s");
-
+        System.out.print("Car State before. Car name: " + cs.getCar().getName());
+        System.out.printf(" Distance: %7.2f", cs.getDistance());
+        System.out.printf(" Speed: %7.3f", cs.getSpeed());
+        System.out.printf(" Time: %5.1f", cs.getTime());
+        System.out.println();
         Integer maxDistance = track.getLength(); // m
         Float acceleration = cs.getCar().getAcceleration();  // m/s2
         Float speed = cs.getSpeed();  // km/hr
         Float time = cs.getTime(); // second
         Float distance = cs.getDistance();  // m
         Float topSpeed = cs.getCar().getTopSpeed();
-        Integer trackLength = track.getLength();
 
+        //TODO
+        //Track biterse ne olur
 
 
 
@@ -92,15 +96,16 @@ public class RaceEngine
         Float timeNew = time + timeInterval;
 
 
-        //TODO
-        //Track biterse ne olur
+
 
         cs.setSpeed(speedNew);
         cs.setTime(timeNew);
         cs.setDistance(distanceNew);
-
-        System.out.println("Car state after.  Car name: " + cs.getCar().getName() + " Distance: " + cs.getDistance() + " m" + " Speed: " + cs.getSpeed() + " km/hr" + " Time: " + cs.getTime() + " s");
-
+        System.out.print("Car state after.  Car name: " + cs.getCar().getName());
+        System.out.printf(" Distance: %7.2f", cs.getDistance());
+        System.out.printf(" Speed: %7.3f", cs.getSpeed());
+        System.out.printf(" Time: %5.1f", cs.getTime());
+        System.out.println();
     }
 
 }
