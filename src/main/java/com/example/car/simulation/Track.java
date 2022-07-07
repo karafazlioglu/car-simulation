@@ -7,9 +7,9 @@ public class Track
         return "Bu bir yol sınıfıdır. Yarışın yapılacağı yolu belirtir. ";
     }
     String name;
-    Integer length;
+    Float length;
 
-    public Track(String name, Integer length)
+    public Track(String name, Float length)
     {
         this.name = name;
         this.length = length;
@@ -20,7 +20,7 @@ public class Track
         return name;
     }
 
-    public Integer getLength()
+    public Float getLength()
     {
         return length;
     }

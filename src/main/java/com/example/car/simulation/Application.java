@@ -1,9 +1,7 @@
 package com.example.car.simulation;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 public class Application
 {
@@ -14,7 +12,7 @@ public class Application
         RaceEngine raceEngine = new RaceEngine();
 
         System.out.println(Track.usage());
-        Track track1 = new Track("Bostancı E5", 12000);
+        Track track1 = new Track("Bostancı E5", 2000f);
         raceEngine.setTrack(track1);
 
         Car car1 = new Car();

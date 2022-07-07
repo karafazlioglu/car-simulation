@@ -53,7 +53,7 @@ public class RaceEngine
         // TODO
         // Yarışın bittiğini nasıl anlıycaz.
 
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 43; i++)
         {
             for (CarState cs : carStates)
                 updateCarState(cs, 1f);
@@ -70,7 +70,7 @@ public class RaceEngine
         System.out.printf(" Speed: %7.3f", cs.getSpeed());
         System.out.printf(" Time: %5.1f", cs.getTime());
         System.out.println();
-        Integer maxDistance = track.getLength(); // m
+        Float maxDistance = track.getLength(); // m
         Float acceleration = cs.getCar().getAcceleration();  // m/s2
         Float speed = cs.getSpeed();  // km/hr
         Float time = cs.getTime(); // second
@@ -95,7 +95,8 @@ public class RaceEngine
         Float distanceNew = distance + ((speedNew + speed) / 2.0f * accelerationInterval + topSpeedInterval * topSpeed) / 3.6f;
         Float timeNew = time + timeInterval;
 
-
+        if (distanceNew > maxDistance)
+            distanceNew = maxDistance;
 
 
         cs.setSpeed(speedNew);
