@@ -53,30 +53,41 @@ public class RaceEngine
         // TODO
         // Yarışın bittiğini nasıl anlıycaz.
 
-        for (int i = 0; i < 43; i++)
+        for (int i = 0; i < 2000; i++)
         {
             for (CarState cs : carStates)
-                updateCarState(cs, 1f);
+            {
+                boolean isUpdated = updateCarState(cs, 1f);
+            }
         }
 
         //TODO
         return new SimulationResult();
     }
 
-    private void updateCarState(CarState cs, Float timeInterval)
+    private boolean updateCarState(CarState cs, Float timeInterval)
     {
-        System.out.printf("Car State before. Car name: %s Distance: %7.2f Speed: %7.3f Time: %5.1f \n",
-                cs.getCar().getName(),
-                cs.getDistance(),
-                cs.getSpeed(),
-                cs.getTime()
-        );
-        Float maxDistance = track.getLength(); // m
+//        System.out.printf("Car State before. Car name: %s Distance: %7.2f Speed: %7.3f Time: %5.1f \n",
+//                cs.getCar().getName(),
+//                cs.getDistance(),
+//                cs.getSpeed(),
+//                cs.getTime()
+//        );
+        Float maxDistance = Float.valueOf(track.getLength()); // m
         Float acceleration = cs.getCar().getAcceleration();  // m/s2
         Float speed = cs.getSpeed();  // km/hr
         Float time = cs.getTime(); // second
         Float distance = cs.getDistance();  // m
         Float topSpeed = cs.getCar().getTopSpeed();
+
+
+
+        if (distance >= maxDistance)
+        {
+            // hesaba gerek yarisi coktan bitirmis
+            return false;
+        }
+
 
         //TODO
         //Track biterse ne olur
@@ -93,23 +104,80 @@ public class RaceEngine
 
 
         Float speedNew = speed + (acceleration * accelerationInterval) * 3.6f;
-        Float distanceNew = distance + ((speedNew + speed) / 2.0f * accelerationInterval + topSpeedInterval * topSpeed) / 3.6f;
+        Float distanceAcc = ((speedNew + speed) / 2.0f * accelerationInterval) / 3.6f;
+        Float distanceTopSpeed = (topSpeedInterval * topSpeed) / 3.6f;
+        Float distanceNew = distance + distanceAcc + distanceTopSpeed;
         Float timeNew = time + timeInterval;
 
+
+
         if (distanceNew > maxDistance)
-            distanceNew = maxDistance;
+        {
+            if (distance + distanceAcc >= maxDistance)
+            {
+                float d = maxDistance - distance;
+                // TODO unit conversions
+                accelerationInterval = (-speed + (float) Math.sqrt(2 * acceleration * d + speed * speed) ) / acceleration;
+
+                distanceNew = maxDistance;
+                timeNew = time + accelerationInterval;
+                speedNew = speed + (acceleration * accelerationInterval) * 3.6f;
+
+            }
+            else
+            {
+                float d = maxDistance - ( distance + distanceAcc);
+                topSpeedInterval = (d / speed) * 3.6f;
+                distanceNew = maxDistance;
+                speedNew = topSpeed;
+                timeNew = time + accelerationInterval + topSpeedInterval;
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        float distanceError = distanceNew - maxDistance;
+//
+//
+//        if (distanceError > 0)
+//        {
+//            if (distanceError < 0.00001 )
+//            {
+//                distanceNew = maxDistance;
+//            }
+//            else
+//            {
+//                updateCarState(cs, timeInterval/2);
+//                updateCarState(cs, timeInterval/2);
+//                return;
+//            }
+//        }
 
 
         cs.setSpeed(speedNew);
         cs.setTime(timeNew);
         cs.setDistance(distanceNew);
 
-        System.out.printf("Car State after.  Car name: %s Distance: %7.2f Speed: %7.3f Time: %5.1f \n",
+        System.out.printf("Car State after.  Car name: %s Distance: %7.2f Speed: %7.3f Time: %5.4f \n",
                 cs.getCar().getName(),
                 cs.getDistance(),
                 cs.getSpeed(),
                 cs.getTime()
         );
+
+        return true;
     }
 
 }
