@@ -20,7 +20,7 @@ public class Application
         car1.setBrand("Tofaş");
         car1.setModel("Şahin");
         car1.setAcceleration(4f);
-        car1.setTopSpeed(200.5f);
+        car1.setTopSpeed(500.5f);
         car1.setHandling(6);
 
         Car car2 = new Car();
@@ -28,7 +28,7 @@ public class Application
         car2.setBrand("BMW");
         car2.setModel("720d");
         car2.setAcceleration(3f);
-        car2.setTopSpeed(300.5f);
+        car2.setTopSpeed(800.5f);
         car2.setHandling(8);
 
         raceEngine.addCar(car1);

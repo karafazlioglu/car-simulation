@@ -53,14 +53,13 @@ public class RaceEngine
         // TODO
         // Yarışın bittiğini nasıl anlıycaz.
 
-        for (int i = 0; i < 2000; i++)
+        for (int i = 0; i < 3000; i++)
         {
             for (CarState cs : carStates)
             {
                 boolean isUpdated = updateCarState(cs, 1f);
             }
         }
-
         //TODO
         return new SimulationResult();
     }
@@ -84,7 +83,7 @@ public class RaceEngine
 
         if (distance >= maxDistance)
         {
-            // hesaba gerek yarisi coktan bitirmis
+            // hesaba gerek yok yarisi coktan bitirmis
             return false;
         }
 
@@ -117,7 +116,7 @@ public class RaceEngine
             {
                 float d = maxDistance - distance;
                 // TODO unit conversions
-                accelerationInterval = (-speed + (float) Math.sqrt(2 * acceleration * d + speed * speed) ) / acceleration;
+                accelerationInterval = ((-speed / 3.6f) + (float) Math.sqrt(2 * acceleration * d + speed * speed / 3.6f / 3.6f) ) / acceleration;
 
                 distanceNew = maxDistance;
                 timeNew = time + accelerationInterval;
