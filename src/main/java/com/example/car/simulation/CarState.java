@@ -40,4 +40,9 @@ public class CarState
         return speed;
     }
 
+    public String toString()
+    {
+        return String.format("Car name: %s Distance: %7.2f Speed: %7.3f Time: %5.4f ", car.getName(), distance, speed, time);
+    }
+
 }

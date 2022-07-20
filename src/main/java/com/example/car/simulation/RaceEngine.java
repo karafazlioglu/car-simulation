@@ -144,12 +144,7 @@ public class RaceEngine
         cs.setTime(timeNew);
         cs.setDistance(distanceNew);
 
-        System.out.printf("Car State after.  Car name: %s Distance: %7.2f Speed: %7.3f Time: %5.4f \n",
-                cs.getCar().getName(),
-                cs.getDistance(),
-                cs.getSpeed(),
-                cs.getTime()
-        );
+        System.out.println("Car State after.  " + cs);
         return true;
     }
 }
