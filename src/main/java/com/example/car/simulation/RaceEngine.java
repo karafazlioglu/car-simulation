@@ -52,20 +52,14 @@ public class RaceEngine
 
         // TODO
         // Yarışın bittiğini nasıl anlıycaz.
-        boolean isUpdated;
-        for (int i = 0; i < 400; i++)
+        boolean isUpdated = true;
+        while (isUpdated)
         {
             for (CarState cs : carStates)
-            {
                 isUpdated = updateCarState(cs, 1f);
-                if (isUpdated == false)
-                    continue;
-                System.out.println(isUpdated);
-            }
         }
 
         //TODO
-        //if(updateCarState(cs, 1f) = false)
 
         return new SimulationResult();
     }
