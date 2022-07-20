@@ -60,11 +60,14 @@ public class RaceEngine
                 if(isUpdated)
                     allFinished = false;
             }
+
+            // TODO sort carStates according to distance
         }
 
+        SimulationResult simulationResult =  new SimulationResult();
         //TODO
 
-        return new SimulationResult();
+        return simulationResult;
     }
 
     private boolean updateCarState(CarState cs, Float timeInterval)

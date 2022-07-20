@@ -52,6 +52,10 @@ public class Application
             System.out.println(c.getTopSpeed());
         }
 
-        raceEngine.simulation();
+        SimulationResult simulationResult = raceEngine.simulation();
+
+
+
+        
     }
 }
