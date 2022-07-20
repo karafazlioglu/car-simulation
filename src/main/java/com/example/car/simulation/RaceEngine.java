@@ -50,13 +50,16 @@ public class RaceEngine
             carStates.add(carState);
         }
 
-        // TODO
-        // Yarışın bittiğini nasıl anlıycaz.
-        boolean isUpdated = true;
-        while (isUpdated)
+        boolean allFinished = false;
+        while (!allFinished)
         {
+            allFinished = true;
             for (CarState cs : carStates)
-                isUpdated = updateCarState(cs, 1f);
+            {
+                boolean isUpdated = updateCarState(cs, 1f);
+                if(isUpdated)
+                    allFinished = false;
+            }
         }
 
         //TODO
@@ -79,19 +82,11 @@ public class RaceEngine
         Float distance = cs.getDistance();  // m
         Float topSpeed = cs.getCar().getTopSpeed();
 
-
-
         if (distance >= maxDistance)
         {
             // hesaba gerek yok yarisi coktan bitirmis
             return false;
         }
-
-
-        //TODO
-        //Track biterse ne olur
-
-
 
         Float accelerationInterval = timeInterval;
         Float intervalForTopSpeed = ((topSpeed - speed) / acceleration ) / 3.6f;
@@ -101,27 +96,22 @@ public class RaceEngine
         }
         Float topSpeedInterval = timeInterval - accelerationInterval;
 
-
         Float speedNew = speed + (acceleration * accelerationInterval) * 3.6f;
         Float distanceAcc = ((speedNew + speed) / 2.0f * accelerationInterval) / 3.6f;
         Float distanceTopSpeed = (topSpeedInterval * topSpeed) / 3.6f;
         Float distanceNew = distance + distanceAcc + distanceTopSpeed;
         Float timeNew = time + timeInterval;
 
-
-
         if (distanceNew > maxDistance)
         {
             if (distance + distanceAcc >= maxDistance)
             {
                 float d = maxDistance - distance;
-                // TODO unit conversions
                 accelerationInterval = ((-speed / 3.6f) + (float) Math.sqrt(2 * acceleration * d + speed * speed / 3.6f / 3.6f) ) / acceleration;
 
                 distanceNew = maxDistance;
                 timeNew = time + accelerationInterval;
                 speedNew = speed + (acceleration * accelerationInterval) * 3.6f;
-
             }
             else
             {
@@ -131,21 +121,7 @@ public class RaceEngine
                 speedNew = topSpeed;
                 timeNew = time + accelerationInterval + topSpeedInterval;
             }
-
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //        float distanceError = distanceNew - maxDistance;
 //
@@ -164,7 +140,6 @@ public class RaceEngine
 //            }
 //        }
 
-
         cs.setSpeed(speedNew);
         cs.setTime(timeNew);
         cs.setDistance(distanceNew);
@@ -175,8 +150,6 @@ public class RaceEngine
                 cs.getSpeed(),
                 cs.getTime()
         );
-
         return true;
     }
-
 }
