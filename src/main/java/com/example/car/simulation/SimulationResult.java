@@ -9,4 +9,19 @@ public class SimulationResult
 
     List<CarStanding> standings = new ArrayList<>();
 
+    public void setTrack(Track track)
+    {
+        this.track = track;
+    }
+
+    public Track getTrack()
+    {
+        return track;
+    }
+
+    public ArrayList<CarStanding> getStandings()
+    {
+        return (ArrayList<CarStanding>) standings;
+    }
+
 }

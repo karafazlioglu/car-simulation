@@ -22,6 +22,7 @@ public class Application
         car1.setAcceleration(4f);
         car1.setTopSpeed(500.5f);
         car1.setHandling(6);
+        car1.setDriver("Hakkinen");
 
         Car car2 = new Car();
         car2.setName("Ağlatıcı  ");
@@ -30,6 +31,7 @@ public class Application
         car2.setAcceleration(3f);
         car2.setTopSpeed(800.5f);
         car2.setHandling(8);
+        car2.setDriver("Schumacher");
 
         raceEngine.addCar(car1);
         raceEngine.addCar(car2);
@@ -39,6 +41,7 @@ public class Application
         {
             Car c = cars.get(i);
             System.out.println(c.getName());
+            System.out.println(c.getDriver());
         }
 
         Iterator<Car> it = cars.iterator();
@@ -46,14 +49,16 @@ public class Application
         {
             Car c = it.next();
             System.out.println(c.getName());
+            System.out.println(c.getDriver());
         }
         for (Car c : cars) {
             System.out.println(c.getBrand());
             System.out.println(c.getTopSpeed());
+            System.out.println(c.getModel());
         }
 
         SimulationResult simulationResult = raceEngine.simulation();
-
+        //simulationResult.setTrack(track1);
 
 
         

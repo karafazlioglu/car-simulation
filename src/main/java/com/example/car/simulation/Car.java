@@ -7,6 +7,8 @@ public class Car
     String name;
     String brand;
     String model;
+    String driver;
+
 
     Float acceleration;  // m/s2 ??
     Float topSpeed; // km/h
@@ -40,6 +42,16 @@ public class Car
     public String getModel()
     {
         return model;
+    }
+
+    public void setDriver(String driver)
+    {
+        this.driver = driver;
+    }
+
+    public String getDriver()
+    {
+        return driver;
     }
 
     public void setAcceleration(Float acceleration)

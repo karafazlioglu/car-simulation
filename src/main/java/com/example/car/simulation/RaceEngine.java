@@ -60,8 +60,11 @@ public class RaceEngine
                 if(isUpdated)
                     allFinished = false;
             }
+            //TODO
+            //CarStanding carStanding = new CarStanding();
 
-            // TODO sort carStates according to distance
+            //sortCarState(csg, 250);
+            //while (300f > carStates.get(cars.indexOf(0)).getDistance() > 250f)
         }
 
         SimulationResult simulationResult =  new SimulationResult();
@@ -69,7 +72,13 @@ public class RaceEngine
 
         return simulationResult;
     }
+    //private void sortCarState(d)
+    //{
+        //System.out.println("Both cars are ready to go.");
+       // System.out.println("Set......Go! ");
+        //int d = distancenew;
 
+    //}
     private boolean updateCarState(CarState cs, Float timeInterval)
     {
 //        System.out.printf("Car State before. Car name: %s Distance: %7.2f Speed: %7.3f Time: %5.1f \n",
