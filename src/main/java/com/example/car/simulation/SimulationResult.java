@@ -7,7 +7,7 @@ public class SimulationResult
 {
     Track track;
 
-    List<CarStanding> standings = new ArrayList<>();
+    ArrayList<CarStanding> standings = new ArrayList<>();
 
     public void setTrack(Track track)
     {
@@ -21,7 +21,9 @@ public class SimulationResult
 
     public ArrayList<CarStanding> getStandings()
     {
-        return (ArrayList<CarStanding>) standings;
+        return standings;
     }
+
+
 
 }

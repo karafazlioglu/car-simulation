@@ -58,9 +58,12 @@ public class Application
         }
 
         SimulationResult simulationResult = raceEngine.simulation();
-        //simulationResult.setTrack(track1);
+        raceEngine.simulation().standings.add();
 
 
+        System.out.println("Now we received the results!");
+        System.out.println("1..." );
+        System.out.println("2...");
         
     }
 }

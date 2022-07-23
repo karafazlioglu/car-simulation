@@ -61,6 +61,13 @@ public class RaceEngine
                     allFinished = false;
             }
             //TODO
+            if (allFinished = true)
+            {
+                //simulation().standings.add();
+                //simulation().standings.add();
+            }
+
+
             //CarStanding carStanding = new CarStanding();
 
             //sortCarState(csg, 250);
