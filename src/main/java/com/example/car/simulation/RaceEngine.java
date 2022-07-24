@@ -49,7 +49,8 @@ public class RaceEngine
 
             carStates.add(carState);
         }
-
+        CarStanding carStanding = new CarStanding();
+        Float time = 0f;
         boolean allFinished = false;
         while (!allFinished)
         {
@@ -60,12 +61,13 @@ public class RaceEngine
                 if(isUpdated)
                     allFinished = false;
             }
-            //TODO
-            if (allFinished = true)
-            {
+            // TODO
+            time = time + 1;
+            //if (allFinished = true)
+            //{
                 //simulation().standings.add();
                 //simulation().standings.add();
-            }
+            //}
 
 
             //CarStanding carStanding = new CarStanding();
@@ -73,10 +75,11 @@ public class RaceEngine
             //sortCarState(csg, 250);
             //while (300f > carStates.get(cars.indexOf(0)).getDistance() > 250f)
         }
+        carStanding.setTime(time);
 
         SimulationResult simulationResult =  new SimulationResult();
-        //TODO
-
+        // TODO
+        System.out.println(time);
         return simulationResult;
     }
     //private void sortCarState(d)

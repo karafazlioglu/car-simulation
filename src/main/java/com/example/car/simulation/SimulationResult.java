@@ -18,6 +18,10 @@ public class SimulationResult
     {
         return track;
     }
+    public void addCarStanding(CarStanding CarStanding)
+    {
+        standings.add(CarStanding);
+    }
 
     public ArrayList<CarStanding> getStandings()
     {
