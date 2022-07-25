@@ -2,8 +2,8 @@ package com.example.car.simulation;
 
 public class CarStanding
 {
-    Car car;
-    Float time;
+    private Car car;
+    private Float time;
     public void setCar(Car car)
     {
         this.car = car;
@@ -22,7 +22,7 @@ public class CarStanding
     }
     public String toString()
     {
-        return String.format("%s ended the race in %7.2f seconds ", car.getName(), time);
+        return String.format("  %s finished the race in %7.2f seconds ", car.getName(), time);
     }
 
 }

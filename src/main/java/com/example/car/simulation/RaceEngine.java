@@ -49,8 +49,19 @@ public class RaceEngine
 
             carStates.add(carState);
         }
-        CarStanding carStanding = new CarStanding();
         Float time = 0f;
+
+        ArrayList<CarStanding> standings = new ArrayList<>();
+
+        for (Car c : cars)
+        {
+            CarStanding carStanding = new CarStanding();
+            carStanding.setCar(c);
+            carStanding.setTime(time);
+
+            standings.add(carStanding);
+        }
+
         boolean allFinished = false;
         while (!allFinished)
         {
@@ -62,7 +73,20 @@ public class RaceEngine
                     allFinished = false;
             }
             // TODO
-            time = time + 1;
+
+
+            int i = 0;
+            while (i < 2)
+            {
+                for (CarStanding csg : standings)
+                {
+                    time = carStates.get(i).getTime();
+                    csg.setTime(time);
+                    i++;
+                }
+            }
+                //time = carStates.get(1).getTime();
+
             //if (allFinished = true)
             //{
                 //simulation().standings.add();
@@ -75,11 +99,14 @@ public class RaceEngine
             //sortCarState(csg, 250);
             //while (300f > carStates.get(cars.indexOf(0)).getDistance() > 250f)
         }
-        carStanding.setTime(time);
+        //carStanding.setTime(time);
 
         SimulationResult simulationResult =  new SimulationResult();
         // TODO
-        System.out.println(time);
+        System.out.printf("Race just ended in %s", getTrack().name);
+        System.out.println(" ");
+        System.out.println(standings);
+        //System.out.println(time);
         return simulationResult;
     }
     //private void sortCarState(d)

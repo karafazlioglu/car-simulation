@@ -66,9 +66,8 @@ public class Application
        // System.out.println(cs.getTime());
 
         CarStanding carStanding1 = new CarStanding();
-
         carStanding1.setCar(car1);
-        carStanding1.setTime(31.6228f);
+        //carStanding1.setTime(raceEngine.simulation());
 
 
         CarStanding carStanding2 = new CarStanding();
@@ -94,9 +93,8 @@ public class Application
 
 
 
-        System.out.printf("Race just ended in %s", simulationResult.getTrack().name);
-        System.out.println(" ");
-        System.out.println("Now we received the results!" + simulationResult.getStandings());
+
+        //System.out.println("Now we received the results! \n" + raceEngine.simulation().standings);
 
     }
 }
