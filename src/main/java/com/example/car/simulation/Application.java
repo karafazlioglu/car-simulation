@@ -62,7 +62,8 @@ public class Application
         System.out.printf("\t\t\t\t\t\t\tRace just ended in %s", track1.name);
         System.out.println(" ");
         System.out.println("\t\t\t\t\t\t  We have just received the results!!");
-        System.out.println(simulationResult.standings);
+        System.out.println("\t\t\tFirst place  " + simulationResult.standings.get(0));
+        System.out.println("\t\t\tSecond place " + simulationResult.standings.get(1));
 
 
 
