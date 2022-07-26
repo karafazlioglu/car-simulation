@@ -22,7 +22,7 @@ public class CarStanding
     }
     public String toString()
     {
-        return String.format("  %s finished the race in %7.2f seconds ", car.getName(), time);
+        return String.format(" %s finished the race in %7.2f seconds", car.getName(), time);
     }
 
 }

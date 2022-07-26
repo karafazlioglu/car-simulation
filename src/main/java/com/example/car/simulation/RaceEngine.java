@@ -50,8 +50,9 @@ public class RaceEngine
             carStates.add(carState);
         }
         Float time = 0f;
+        SimulationResult simulationResult =  new SimulationResult();
 
-        ArrayList<CarStanding> standings = new ArrayList<>();
+        ArrayList<CarStanding> standings = simulationResult.standings;
 
         for (Car c : cars)
         {
@@ -101,12 +102,8 @@ public class RaceEngine
         }
         //carStanding.setTime(time);
 
-        SimulationResult simulationResult =  new SimulationResult();
         // TODO
-        System.out.printf("Race just ended in %s", getTrack().name);
-        System.out.println(" ");
-        System.out.println(standings);
-        //System.out.println(time);
+
         return simulationResult;
     }
     //private void sortCarState(d)

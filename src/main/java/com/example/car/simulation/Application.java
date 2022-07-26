@@ -59,31 +59,10 @@ public class Application
 
         SimulationResult simulationResult = raceEngine.simulation();
 
-        simulationResult.setTrack(track1);
-
-       // CarState cs = new CarState();
-       // cs.setTime();
-       // System.out.println(cs.getTime());
-
-        CarStanding carStanding1 = new CarStanding();
-        carStanding1.setCar(car1);
-        //carStanding1.setTime(raceEngine.simulation());
-
-
-        CarStanding carStanding2 = new CarStanding();
-        carStanding2.setCar(car2);
-        carStanding2.setTime(36.5148f);
-
-
-        simulationResult.standings.add(carStanding1);
-        simulationResult.standings.add(carStanding2);
-
-
-        //for (CarStanding csg : simulationResult.standings)
-        //{
-           // simulationResult.standings.add(csg);
-           // System.out.println(simulationResult.standings);
-       // }
+        System.out.printf("\t\t\t\t\t\t\tRace just ended in %s", track1.name);
+        System.out.println(" ");
+        System.out.println("\t\t\t\t\t\t  We have just received the results!!");
+        System.out.println(simulationResult.standings);
 
 
 
@@ -92,9 +71,6 @@ public class Application
 
 
 
-
-
-        //System.out.println("Now we received the results! \n" + raceEngine.simulation().standings);
 
     }
 }
