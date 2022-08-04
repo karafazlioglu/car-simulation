@@ -23,6 +23,7 @@ public class Application
         car1.setTopSpeed(500.5f);
         car1.setHandling(6);
         car1.setDriver("Hakkinen");
+        raceEngine.addCar(car1);
 
         Car car2 = new Car();
         car2.setName("Ağlatıcı  ");
@@ -32,8 +33,6 @@ public class Application
         car2.setTopSpeed(800.5f);
         car2.setHandling(8);
         car2.setDriver("Schumacher");
-
-        raceEngine.addCar(car1);
         raceEngine.addCar(car2);
 
         ArrayList<Car> cars = raceEngine.getCars();
@@ -59,11 +58,11 @@ public class Application
 
         SimulationResult simulationResult = raceEngine.simulation();
 
-        System.out.printf("\t\t\t\t\t\t\tRace just ended in %s", track1.name);
+        System.out.printf("\t\t\t\t\t\t\tRace just ended in %s", simulationResult.getTrack().getName());
         System.out.println(" ");
         System.out.println("\t\t\t\t\t\t  We have just received the results!!");
-        System.out.println("\t\t\tFirst place  " + simulationResult.standings.get(0));
-        System.out.println("\t\t\tSecond place " + simulationResult.standings.get(1));
+        System.out.println("\t\t\tFirst place  " + simulationResult.getStandings().get(0));
+        System.out.println("\t\t\tSecond place " + simulationResult.getStandings().get(1));
 
 
 

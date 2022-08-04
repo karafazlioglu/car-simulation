@@ -5,9 +5,9 @@ import java.util.List;
 
 public class SimulationResult
 {
-    Track track;
+    private Track track;
 
-    ArrayList<CarStanding> standings = new ArrayList<>();
+    private ArrayList<CarStanding> standings = new ArrayList<>();
 
     public void setTrack(Track track)
     {

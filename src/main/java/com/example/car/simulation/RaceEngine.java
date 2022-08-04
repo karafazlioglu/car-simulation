@@ -49,19 +49,6 @@ public class RaceEngine
 
             carStates.add(carState);
         }
-        Float time = 0f;
-        SimulationResult simulationResult =  new SimulationResult();
-
-        ArrayList<CarStanding> standings = simulationResult.standings;
-
-        for (Car c : cars)
-        {
-            CarStanding carStanding = new CarStanding();
-            carStanding.setCar(c);
-            carStanding.setTime(time);
-
-            standings.add(carStanding);
-        }
 
         boolean allFinished = false;
         while (!allFinished)
@@ -73,46 +60,29 @@ public class RaceEngine
                 if(isUpdated)
                     allFinished = false;
             }
-            // TODO
-
-
-            int i = 0;
-            while (i < 2)
-            {
-                for (CarStanding csg : standings)
-                {
-                    time = carStates.get(i).getTime();
-                    csg.setTime(time);
-                    i++;
-                }
-            }
-                //time = carStates.get(1).getTime();
-
-            //if (allFinished = true)
-            //{
-                //simulation().standings.add();
-                //simulation().standings.add();
-            //}
-
-
-            //CarStanding carStanding = new CarStanding();
-
-            //sortCarState(csg, 250);
-            //while (300f > carStates.get(cars.indexOf(0)).getDistance() > 250f)
+            sortCarStates(carStates);
         }
-        //carStanding.setTime(time);
 
-        // TODO
+
+        SimulationResult simulationResult =  new SimulationResult();
+        simulationResult.setTrack(getTrack());
+        for (CarState cs : carStates)
+        {
+            CarStanding carStanding = new CarStanding();
+            carStanding.setCar(cs.getCar());
+            carStanding.setTime(cs.getTime());
+            simulationResult.addCarStanding(carStanding);
+        }
 
         return simulationResult;
     }
-    //private void sortCarState(d)
-    //{
-        //System.out.println("Both cars are ready to go.");
-       // System.out.println("Set......Go! ");
-        //int d = distancenew;
 
-    //}
+    private void sortCarStates(List<CarState> carStates)
+    {
+
+        // TODO sort carStates
+    }
+
     private boolean updateCarState(CarState cs, Float timeInterval)
     {
 //        System.out.printf("Car State before. Car name: %s Distance: %7.2f Speed: %7.3f Time: %5.1f \n",
