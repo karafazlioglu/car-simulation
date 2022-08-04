@@ -1,11 +1,11 @@
 package com.example.car.simulation;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class SimulationResult
 {
     private Track track;
+    private Integer position;
 
     private ArrayList<CarStanding> standings = new ArrayList<>();
 
@@ -22,12 +22,30 @@ public class SimulationResult
     {
         standings.add(CarStanding);
     }
-
+    public void removeCarStanding(CarStanding Carstanding)
+    {
+        standings.remove(Carstanding);
+    }
+    public void clearCarStanding(CarStanding Carstanding)
+    {
+        standings.clear();
+    }
     public ArrayList<CarStanding> getStandings()
     {
         return standings;
     }
 
-
+    public void toStringHeader()
+    {
+        System.out.printf("\t\t\t\t\t\t\tRace just ended in %s\n \t\t\t\t\t\t  We have just received the results!!\n \t\t\t\t\t\tPOSITION\t\tDRIVER\t\t\t\tTIME",track.getName());
+    }
+    public void toStringResults()
+    {
+        for (int i = 0; i < standings.size(); i++)
+        {
+            position = i + 1;
+            System.out.println("\n\t\t\t\t\t\t\t" + position + "\t\t\t" + standings.get(i).getCar().getDriver() + "\t\t\t" + standings.get(i).getTime());
+        }
+    }
 
 }

@@ -40,7 +40,7 @@ public class Application
         {
             Car c = cars.get(i);
             System.out.println(c.getName());
-            System.out.println(c.getDriver());
+            //System.out.println(c.getDriver());
         }
 
         Iterator<Car> it = cars.iterator();
@@ -48,7 +48,7 @@ public class Application
         {
             Car c = it.next();
             System.out.println(c.getName());
-            System.out.println(c.getDriver());
+            //System.out.println(c.getDriver());
         }
         for (Car c : cars) {
             System.out.println(c.getBrand());
@@ -58,11 +58,14 @@ public class Application
 
         SimulationResult simulationResult = raceEngine.simulation();
 
-        System.out.printf("\t\t\t\t\t\t\tRace just ended in %s", simulationResult.getTrack().getName());
-        System.out.println(" ");
-        System.out.println("\t\t\t\t\t\t  We have just received the results!!");
-        System.out.println("\t\t\tFirst place  " + simulationResult.getStandings().get(0));
-        System.out.println("\t\t\tSecond place " + simulationResult.getStandings().get(1));
+        simulationResult.toStringHeader();
+        simulationResult.toStringResults();
+
+        //System.out.printf("\t\t\t\t\t\t\tRace just ended in %s", simulationResult.getTrack().getName());
+       // System.out.println(" ");
+       // System.out.println("\t\t\t\t\t\t  We have just received the results!!");
+       // System.out.println("\t\t\tFirst place  " + simulationResult.getStandings().get(0));
+       // System.out.println("\t\t\tSecond place " + simulationResult.getStandings().get(1));
 
 
 

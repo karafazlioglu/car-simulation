@@ -6,8 +6,8 @@ public class Track
     {
         return "Bu bir yol sınıfıdır. Yarışın yapılacağı yolu belirtir. ";
     }
-    String name;
-    Integer length;
+    private String name;
+    private Integer length;
 
     public Track(String name, Integer length)
     {

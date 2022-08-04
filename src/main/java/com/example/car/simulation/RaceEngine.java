@@ -6,10 +6,10 @@ import java.util.List;
 
 public class RaceEngine
 {
-    Track track;
-    ArrayList<Car> cars = new ArrayList<>();
+    private Track track;
+    private ArrayList<Car> cars = new ArrayList<>();
 
-    List<CarState> carStates = new ArrayList<>();
+    private List<CarState> carStates = new ArrayList<>();
 
     public void setTrack(Track track)
     {
@@ -80,7 +80,8 @@ public class RaceEngine
     private void sortCarStates(List<CarState> carStates)
     {
 
-        // TODO sort carStates
+        // TODO
+        //  sort carStates
     }
 
     private boolean updateCarState(CarState cs, Float timeInterval)

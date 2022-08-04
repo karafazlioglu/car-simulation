@@ -4,15 +4,15 @@ import javax.naming.Name;
 
 public class Car
 {
-    String name;
-    String brand;
-    String model;
-    String driver;
+    private String name;
+    private String brand;
+    private String model;
+    private String driver;
 
 
-    Float acceleration;  // m/s2 ??
-    Float topSpeed; // km/h
-    Integer handling;
+    private Float acceleration;  // m/s2 ??
+    private Float topSpeed; // km/h
+    private Integer handling;
 
     public void setName(String name)
     {
