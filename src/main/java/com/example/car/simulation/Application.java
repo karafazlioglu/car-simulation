@@ -58,8 +58,8 @@ public class Application
 
         SimulationResult simulationResult = raceEngine.simulation();
 
-        simulationResult.toStringHeader();
-        simulationResult.toStringResults();
+        simulationResult.printHeader();
+        simulationResult.printResults();
 
         //System.out.printf("\t\t\t\t\t\t\tRace just ended in %s", simulationResult.getTrack().getName());
        // System.out.println(" ");

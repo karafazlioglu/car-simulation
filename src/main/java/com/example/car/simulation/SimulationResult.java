@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class SimulationResult
 {
     private Track track;
-    private Integer position;
 
     private ArrayList<CarStanding> standings = new ArrayList<>();
 
@@ -35,12 +34,13 @@ public class SimulationResult
         return standings;
     }
 
-    public void toStringHeader()
+    public void printHeader()
     {
         System.out.printf("\t\t\t\t\t\t\tRace just ended in %s\n \t\t\t\t\t\t  We have just received the results!!\n \t\t\t\t\t\tPOSITION\t\tDRIVER\t\t\t\tTIME",track.getName());
     }
-    public void toStringResults()
+    public void printResults()
     {
+        int position;
         for (int i = 0; i < standings.size(); i++)
         {
             position = i + 1;
