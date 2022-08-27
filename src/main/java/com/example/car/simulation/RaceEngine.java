@@ -95,51 +95,6 @@ public class RaceEngine
                     loopCount += 1;
                 }
 
-                float firstLevelTime = 3;
-                float firstLevelDist = track.getLength() / 8;
-                float secondLevelDist = firstLevelDist + 250;
-                float thirdLevelDist = secondLevelDist + 250;
-                float forthLevelDist = thirdLevelDist + 250;
-                float fifthLevelDist = forthLevelDist + 250;
-                float sixthLevelDist = fifthLevelDist + 250;
-                float seventhLevelDist = sixthLevelDist + 250;
-                float distance = carStates.get(i).getDistance();
-                String firstCarName = carStates.get(i).getCar().getName();
-                String secondCarName = carStates.get(i + 1).getCar().getName();
-
-                if(distance < firstLevelDist)
-                    if (loopCount == 1) System.out.println(firstCarName + " has just overtook "
-                            + secondCarName + " at the begining of the race!");
-                        else System.out.println(firstCarName + " keeps its position at the first place!");
-                    else if (firstLevelDist < distance && distance < secondLevelDist)
-                    if (loopCount == 1) System.out.println(firstCarName + " has just overtook " + secondCarName);
-                        else System.out.println(firstCarName + " keeps its position at the first place! \n" +
-                             secondCarName + " needs to hurry up!!");
-                    else if (secondLevelDist < distance && distance < thirdLevelDist)
-                    if (loopCount == 1) System.out.println(firstCarName + " has just overtook " + secondCarName);
-                    else System.out.println(firstCarName + " keeps its position at the first place! \n" +
-                            secondCarName + " needs to hurry up!!");
-                    else if (thirdLevelDist < distance && distance < forthLevelDist)
-                    if (loopCount == 1) System.out.println(firstCarName + " has just overtook " + secondCarName);
-                    else System.out.println(firstCarName + " keeps its position at the first place! \n" +
-                            secondCarName + " needs to hurry up!!");
-                    else if (forthLevelDist < distance && distance < fifthLevelDist)
-                    if (loopCount == 1) System.out.println(firstCarName + " has just overtook " + secondCarName);
-                    else System.out.println(firstCarName + " keeps its position at the first place! \n" +
-                            secondCarName + " needs to hurry up!!");
-                    else if (fifthLevelDist < distance && distance < sixthLevelDist)
-                    if (loopCount == 1) System.out.println(firstCarName + " has just overtook " + secondCarName);
-                    else System.out.println(firstCarName + " keeps its position at the first place! \n" +
-                            secondCarName + " needs to hurry up!!");
-                    else if (sixthLevelDist < distance && distance < seventhLevelDist)
-                    if (loopCount == 1) System.out.println(firstCarName + " has just overtook " + secondCarName);
-                    else System.out.println(firstCarName + " keeps its position at the first place! \n" +
-                            secondCarName + " needs to hurry up!!");
-                    else if (seventhLevelDist < distance && distance < track.getLength())
-                    if (loopCount == 1) System.out.println(firstCarName + " has just overtook " + secondCarName);
-                    else System.out.println(firstCarName + " keeps its position at the first place! \n" +
-                            secondCarName + " needs to hurry up!!");
-
                 //System.out.println(carStates.get(i).getDistance() + "\n" + carStates.get(i + 1).getDistance() );
             }
         }
