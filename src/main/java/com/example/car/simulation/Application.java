@@ -88,6 +88,8 @@ public class Application
             System.out.println(c.getModel());
         }
 
+        System.out.println("10  9   8   7   6   5   4   3   2   1 ... GO!!");
+
         SimulationResult simulationResult = raceEngine.simulation();
 
         simulationResult.printHeader();
