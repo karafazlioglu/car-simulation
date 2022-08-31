@@ -1,4 +1,4 @@
-package com.example.car.simulation;
+package com.example.car.simulation.engine.pojo;
 
 public class CarStanding
 {

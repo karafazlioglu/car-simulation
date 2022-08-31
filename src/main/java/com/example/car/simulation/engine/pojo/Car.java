@@ -1,6 +1,4 @@
-package com.example.car.simulation;
-
-import javax.naming.Name;
+package com.example.car.simulation.engine.pojo;
 
 public class Car
 {

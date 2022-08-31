@@ -1,5 +1,11 @@
 package com.example.car.simulation;
 
+import com.example.car.simulation.engine.RaceEngine;
+import com.example.car.simulation.engine.SimulationResultPrinter;
+import com.example.car.simulation.engine.pojo.Car;
+import com.example.car.simulation.engine.pojo.SimulationResult;
+import com.example.car.simulation.engine.pojo.Track;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -91,8 +97,7 @@ public class Application
 
         SimulationResult simulationResult = raceEngine.simulation();
 
-        simulationResult.printHeader();
-        simulationResult.printResults();
+        SimulationResultPrinter.print(simulationResult);
 
         //System.out.printf("\t\t\t\t\t\t\tRace just ended in %s", simulationResult.getTrack().getName());
        // System.out.println(" ");
