@@ -2,12 +2,8 @@ package com.example.car.simulation;
 
 public class Track
 {
-    public static String usage()
-    {
-        return "Bu bir yol sınıfıdır. Yarışın yapılacağı yolu belirtir. ";
-    }
-    private String name;
-    private Integer length;
+    private final String name;
+    private final Integer length;
 
     public Track(String name, Integer length)
     {

@@ -11,7 +11,6 @@ public class Application
 
         RaceEngine raceEngine = new RaceEngine();
 
-        System.out.println(Track.usage());
         Track track1 = new Track("Bostancı E5", 2000);
         raceEngine.setTrack(track1);
 

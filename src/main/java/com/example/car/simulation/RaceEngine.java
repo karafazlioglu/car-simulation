@@ -2,6 +2,7 @@ package com.example.car.simulation;
 
 import javax.xml.namespace.QName;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class RaceEngine
@@ -9,7 +10,7 @@ public class RaceEngine
     private Track track;
     private ArrayList<Car> cars = new ArrayList<>();
 
-    private List<CarState> carStates = new ArrayList<>();
+    private ArrayList<CarState> carStates = new ArrayList<>();
 
     public void setTrack(Track track)
     {
@@ -76,31 +77,35 @@ public class RaceEngine
         return simulationResult;
     }
 
-    private void sortCarStates(List<CarState> carStates)
+    private void sortCarStates(ArrayList<CarState> carStates)
     {
-        boolean allSorted = false;
-        int loopCount = 0;
+        // TODO check: is sort method working
 
-        while (!allSorted)
-        {
-            allSorted = true;
-            for (int i = 0; i < carStates.size() - 1; i++)
-            {
-                if (carStates.get(i).getDistance() < carStates.get(i + 1).getDistance())
-                {
-                    allSorted = false;
-                    CarState cst = carStates.get(i);
-                    carStates.set(i, carStates.get(i + 1));
-                    carStates.set(i + 1, cst);
-                    loopCount += 1;
-                }
+        carStates.sort(Comparator.comparing(CarState::getDistance));
+//        carStates.sort(Comparator.comparing(CarState::getDistance).reversed());
+        
 
-                //System.out.println(carStates.get(i).getDistance() + "\n" + carStates.get(i + 1).getDistance() );
-            }
-        }
+//        boolean allSorted = false;
+//        int loopCount = 0;
+//
+//        while (!allSorted)
+//        {
+//            allSorted = true;
+//            for (int i = 0; i < carStates.size() - 1; i++)
+//            {
+//                if (carStates.get(i).getDistance() < carStates.get(i + 1).getDistance())
+//                {
+//                    allSorted = false;
+//                    CarState cst = carStates.get(i);
+//                    carStates.set(i, carStates.get(i + 1));
+//                    carStates.set(i + 1, cst);
+//                    loopCount += 1;
+//                }
+//
+//                //System.out.println(carStates.get(i).getDistance() + "\n" + carStates.get(i + 1).getDistance() );
+//            }
+//        }
 
-        // TODO
-        //  sort carStates
     }
 
     private boolean updateCarState(CarState cs, Float timeInterval)
