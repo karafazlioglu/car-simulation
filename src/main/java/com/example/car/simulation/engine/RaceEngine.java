@@ -81,8 +81,8 @@ public class RaceEngine
     {
         // TODO check: is sort method working
 
-        carStates.sort(Comparator.comparing(CarState::getDistance));
-//        carStates.sort(Comparator.comparing(CarState::getDistance).reversed());
+//        carStates.sort(Comparator.comparing(CarState::getDistance));
+        carStates.sort(Comparator.comparing(CarState::getDistance).reversed());
         
 
 //        boolean allSorted = false;
