@@ -36,6 +36,11 @@ public class RaceEngine
     {
         return cars;
     }
+    public ArrayList<CarState> getCarStates()
+    {
+        return carStates;
+    }
+
 
     public SimulationResult simulation()
     {
